@@ -65,9 +65,29 @@ function  multiply(){
 function divide(){
     calculateResult('DIVIDE');
 }
+function calculate(operation){
+    const enteredNumber = getUserInput();
+    const initialresult = currentResult;
+    let operator;
+        if(operation === 'ADD'){
+            currentResult += enteredNumber;
+            operator = '+';
+        } else if (operation ==='SUBSTRACT'){
+            currentResult -= enteredNumber;
+            operator = '-';
+        } else if(operation ==='MULTIPLY'){
+            currentResult *= enteredNumber;
+            operator = '*';
+        }else {
+            currentResult /= enteredNumber;
+            operator = '/';
+        }
+        createAndWriteOutput(operator, initialresult, enteredNumber);
+        writeToLog(operation, initialresult, enteredNumber, currentResult);
+}
 
-addBtn.addEventListener('click', add);
-subtractBtn.addEventListener('click', substract);
-multiplyBtn.addEventListener('click', multiply);
-divideBtn.addEventListener('click', divide);
+addBtn.addEventListener('click', calculate.bind(this, 'ADD'));
+subtractBtn.addEventListener('click', calculate.bind(this, 'SUBSTRACT'));
+multiplyBtn.addEventListener('click', calculate.bind(this, 'MULTIPLY'));
+divideBtn.addEventListener('click', calculate.bind(this,'DIVIDE'));
 
