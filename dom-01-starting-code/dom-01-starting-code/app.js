@@ -5,6 +5,9 @@ h1.style.backgroundColor = 'black';
 
 const li = document.querySelector('li:last-of-type');
 li.textContent = li.textContent + '(Changed!)';
+
+const body = document.body;
+
 //const listItemElements = document.querySelectorAll('li');
 const listItemElements = document.getElementsByTagName('li');
 for(const listItemEl of listItemElements){
