@@ -10,7 +10,7 @@ const listItems = document.querySelectorAll('li');
 const moreNumbers2 = Array.from(listItems);
 console.log(moreNumbers2);
 
-const hobbies = ['Cooking', 'Sports'];
+//const hobbies = ['Cooking', 'Sports'];
 const personalData =  [30, 'Max', {Moredetail:[]}];
 
 const analyticsData = [[1,1.6], [-5.4, 2.1]];
@@ -21,5 +21,14 @@ for(const data of analyticsData){
     }
     console.log(data);
 }
-console.log(personalData[1])
-console.log(personalData);
+console.log(personalData[1]);
+const hobbies = ['sports', 'cooking'];
+hobbies.push('reading');
+hobbies.unshift('coding');
+const popedValue = hobbies.pop();
+hobbies.shift();
+console.log(hobbies);
+
+hobbies[1]= 'Coding';
+hobbies[5] = 'reading'; //rarely used
+console.log(hobbies);
