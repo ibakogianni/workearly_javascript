@@ -45,6 +45,8 @@ testResults.push(5.91);
 console.log(storedResults, testResults);
 console.log(testResults.indexOf(1.5));
 console.log(testResults.lastIndexOf(1.5));
+console.log(testResults.includes(10.99));
+console.log(testResults.indexOf(10.99)!== -1);
 
 const personData = [{name: 'max'}, {name:'manuel'}];
 console.log(personData.indexOf({name:'manuel'}));
