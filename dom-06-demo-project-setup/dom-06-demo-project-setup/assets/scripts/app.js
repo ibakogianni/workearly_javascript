@@ -14,7 +14,9 @@ const updateUI = ()=>{
         entryTextSection.style.display = 'none';
     }
 }
-
+const toggleBackdrop = ()=>{
+    backdrop.classList.toggle('visible');
+}
 const deleteMovie = (movieId) => {
     let movieIndex =0;
     for (const movie of movies){
@@ -27,6 +29,8 @@ const deleteMovie = (movieId) => {
     movies.splice(movieIndex, 1);
     const listRoot =document.querySelector('#movie-list');
     listRoot.children[movieIndex].remove();
+    closeMovieDeletionModal();
+    updateUI();
 };
 
 const closeMovieDeletionModal =()=>{
@@ -34,13 +38,17 @@ const closeMovieDeletionModal =()=>{
     deleteMovieModal.classList.remove('visible');
 };
 const deleteMovieHandler =(movieId)=> {
-    
     deleteMovieModal.classList.add('visible');
     toggleBackdrop();
+
    const cancelDeletionButton= deleteMovieModal.querySelector('.btn--passive');
-    const confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+    let confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+    confirmDeletionButton.replaceWith(confirmDeletionButton.cloneNode(true));
+    confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
     cancelDeletionButton.addEventListener('click', closeMovieDeletionModal);
     confirmDeletionButton.addEventListener('click', deleteMovie.bind(null, movieId));
+   // confirmDeletionButton.removeEventListener('click', deleteMovie.bind(null, movieId) );// does not work
+    cancelDeletionButton.removeEventListener('click', closeMovieDeletionModal);
  
 }
 const renderNewMovieElement = (id, title, imageUrl, rating)=> {
@@ -64,19 +72,17 @@ const showMovieModal = () => {
     toggleBackdrop();
 };
 
-const toggleBackdrop = ()=>{
-    backdrop.classList.toggle('visible');
-}
-
 const closeMovieModal = () =>{
 addMovieModal.classList.remove('visible');
 };
 const backdropClickHandler = ()=>{
     closeMovieModal();
     closeMovieDeletionModal();
+    clearMovieInputs();
 }
 const cancelAddMovie = ()=>{
-    showMovieModal();
+    closeMovieModal();
+    toggleBackdrop();
     clearMovieInputs();
 }
 const clearMovieInputs = ()=>{
