@@ -48,3 +48,13 @@ console.log(testResults.lastIndexOf(1.5));
 
 const personData = [{name: 'max'}, {name:'manuel'}];
 console.log(personData.indexOf({name:'manuel'}));
+const manuel = personData.find((person, index, persons)=>{
+    return person.name === 'manuel';
+});
+manuel.name='Anna';
+console.log(manuel, personData);
+
+const maxIndex = personData.findIndex((person, index, persons)=>{
+    return person.name === 'max';
+});
+console.log(maxIndex);
