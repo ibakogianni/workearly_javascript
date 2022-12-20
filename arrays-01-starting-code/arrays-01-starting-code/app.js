@@ -9,3 +9,17 @@ console.log(yetMoreNumbers );
 const listItems = document.querySelectorAll('li');
 const moreNumbers2 = Array.from(listItems);
 console.log(moreNumbers2);
+
+const hobbies = ['Cooking', 'Sports'];
+const personalData =  [30, 'Max', {Moredetail:[]}];
+
+const analyticsData = [[1,1.6], [-5.4, 2.1]];
+
+for(const data of analyticsData){
+    for (const dataPoints of data){
+        console.log(dataPoints);
+    }
+    console.log(data);
+}
+console.log(personalData[1])
+console.log(personalData);
