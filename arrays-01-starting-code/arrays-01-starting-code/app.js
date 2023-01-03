@@ -116,3 +116,6 @@ const copiedPersons = persons.map(person =>({name: person.name, age: person.age}
 persons.push({name: 'Anna', age:29});
 persons[1].age=31;
 console.log(persons, copiedPersons);
+const nameData = ['Max', 'Schwartz', 'Mr', 30];
+const [ firstName, lastName, ...otherInformation ]=nameData;
+console.log(firstName, lastName, otherInformation );
