@@ -99,3 +99,11 @@ const sum = prices.reduce((prevValue, curValue, curIndex, prices)=>{
     return prevValue + curValue;
 },0 );
 console.log(sum);
+
+const data = 'new york;10.99;2000';
+const transformData = data.split(';');
+transformData[1]= +transformData[1];
+console.log(transformData);
+const nameFragments = ['Max', 'Schwartz'];
+const name = nameFragments.join(' ');
+console.log(name);
