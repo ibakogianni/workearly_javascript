@@ -53,7 +53,7 @@ const renderMovies = (filter = '')  => {
             //let text = getFormattedTitle.call(movie) + '-';
             let text = getFormattedTitle.apply(movie) + '-';
             for(const key in info){
-                if(key !== 'title'){
+                if(key !== 'title' && key!==''){
                     text = text + `${key} : ${info[key]}`;
                 }
             }
@@ -69,12 +69,22 @@ const addMovieHandler = () => {
     const title = document.getElementById('title').value;
     const extraName = document.getElementById('extra-name').value;
     const extraValue = document.getElementById('extra-value').value;
-    if(title.trim()=== '' || extraName.trim()=== '' || extraValue.trim()=== ''){
+    if(extraName.trim()=== '' || extraValue.trim()=== ''){
         return;
     }
     const newMovie = {
         info: {
-            title:title,
+            set title(val){
+                //this._title = val;
+                if (val.trim() === ''){
+                    this._title = 'DEFAULT';
+                    return;
+                }
+                this._title = val;
+            },
+           get title(){
+            return this._title;
+           },
            [extraName]: extraValue,
            
         },
@@ -83,6 +93,8 @@ const addMovieHandler = () => {
             return this.info.title.toUpperCase();
         },
     };
+    newMovie.info.title = title;
+    console.log(newMovie.info.title);
     movies.push(newMovie);
     renderMovies();
 };
