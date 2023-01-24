@@ -16,22 +16,19 @@ class Product {
     imageUrl;
     description;
     price;
+
+    constructor(title, image, desc, price){
+        this.title = title;
+        this.imageUrl = image;
+        this.description = desc;
+        this.price = price;
+    }
 }
-console.log(new Product());
+//console.log(new Product());
 const productList = {
     products:[
-        //new Product()
-        {
-            title: 'A pillow', 
-            imageUrl: 'https://www.premierinnathome.com/wp-content/uploads/2021/02/WH45718_PI_Bed_03_2112305_RET-scaled.jpg', 
-            price: 19.99, 
-            description : 'A sort Pillow!'
-        },
-            {
-                title: 'A carpet', 
-                imageUrl: 'https://m.media-amazon.com/images/I/61i5XSPkngL._SL1080_.jpg', 
-                price: 89.99, 
-                description : 'A carpet which you might like- or not!'}
+        new Product('A pillow','https://www.premierinnathome.com/wp-content/uploads/2021/02/WH45718_PI_Bed_03_2112305_RET-scaled.jpg','A sort Pillow!',19.99),
+        new Product ('A carpet','https://m.media-amazon.com/images/I/61i5XSPkngL._SL1080_.jpg','A carpet which you might like- or not!',89.99),
     ],
     render() {
         const renderHook = document.getElementById('app');
