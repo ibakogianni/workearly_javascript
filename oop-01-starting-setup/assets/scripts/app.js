@@ -27,14 +27,20 @@ class Product {
 
 class ShoppintCart {
     items = [];
+    
+    addProduct(product){
+        this.items.push(product);
+        this.totalOutput = `<h2>Total: \$${1}</h2>`
+    }
     render(){
-        const catrEl= document.createElement('section');
-        catrEl.innerHTML=`
+        const cartEl= document.createElement('section');
+        cartEl.innerHTML=`
         <h2>Total: \$${0}</h2>
         <button>Order Now!</button>
         `;
-        catrEl.className= 'cart';
-        return catrEl;
+        cartEl.className= 'cart';
+        this.totalOutput= cartEl.querySelector('h2');
+        return cartEl;
 
     }
 }
@@ -46,6 +52,7 @@ class ProductItem {
 addToCart(){
 console.log('Adding product to cart');
 console.log(this.product);
+ShoppintCart.addProduct();
 }
 
     render(){
