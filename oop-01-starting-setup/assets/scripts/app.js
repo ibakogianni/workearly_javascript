@@ -11,8 +11,16 @@
 //             description : 'A carpet which you might like- or not!'}
 // ];
 
+class Product {
+    title = 'DEFAUTLT';
+    imageUrl;
+    description;
+    price;
+}
+console.log(new Product());
 const productList = {
     products:[
+        //new Product()
         {
             title: 'A pillow', 
             imageUrl: 'https://www.premierinnathome.com/wp-content/uploads/2021/02/WH45718_PI_Bed_03_2112305_RET-scaled.jpg', 
