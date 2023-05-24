@@ -118,15 +118,16 @@ class ProductItem extends Component{
 }
 
 class ProductList extends Component{
-  products =[];
+  #products =[];
 
 
   constructor(renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
+    this.render();
     this.fetchProducts();
   }
 fetchProducts(){
-  this.products = [
+  this.#products = [
     new Product(
         'A Pillow',
         'https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg',
@@ -143,13 +144,13 @@ fetchProducts(){
   this.renderProducts();
 }
 renderProducts(){
-    for(const prod of this.products){
+    for(const prod of this.#products){
       new ProductItem(prod, 'prod-list');
     }
 }
   render() {
     this.createRootElement('ul', 'product-list', [new ElementAttribute('id', 'prod-list')]);
-    if(this.products && this.products.length>0){
+    if(this.#products && this.#products.length>0){
       this.renderProducts();
     }
     }
@@ -167,6 +168,7 @@ class Shop {
    // this.cart.render();
    // const productList = new ProductList('app');
    //productList.render();
+
 
   }
 }
