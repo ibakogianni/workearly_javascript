@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/completed/JavaScript - The Complete Guide 2022 (Beginner + Advanced)" vcs="Git" />
   </component>
 </project>
