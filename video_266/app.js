@@ -63,10 +63,48 @@ class Person {
 // console.dir(Object.prototype.__proto__);
 
 // console.log(p.__proto__ === Person.prototype);
-const p = new Person();
-const p2 = new Person();
-p.greet();
-console.log(p);
-console.log(p.__proto__ === p2.__proto__);
-const button = document.getElementById('btn');
-button.addEventListener('click', p.greet.bind(p));
+// const p = new Person();
+// const p2 = new Person();
+// p.greet();
+// console.log(p);
+// console.log(p.__proto__ === p2.__proto__);
+// const button = document.getElementById('btn');
+// button.addEventListener('click', p.greet.bind(p));
+
+const course = {
+    //new Object();
+    title: 'Javascript - The complete Guide',
+    rating: 5
+};
+//console.log(Object.getPrototypeOf(course));
+Object.setPrototypeOf(course, {
+    ...Object.getPrototypeOf(course),
+    printRating: function(){
+        console.log(`${this.rating}/5`);
+    }
+});
+const student = Object.create({
+    printProgress: function(){
+        console.log(this.progress);
+    }
+}, {
+    name:{  configurable: true,
+            enumerable: true,
+            value: 'Irida',
+            writable: false}
+});
+//student.name = "Max";
+Object.defineProperty(student, 'progress',{
+    configurable: true,
+    enumerable: true,
+    value: 0.8,
+    writable: false
+    }
+);
+
+student.printProgress();
+
+console.log(student);
+console.log(course.__proto__);
+course.printRating();
+
